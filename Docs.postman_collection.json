@@ -1,0 +1,193 @@
+{
+	"info": {
+		"_postman_id": "65a764e6-9274-4eca-b558-0573bff3f8ea",
+		"name": "Docs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Simple Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b08c8f65-d516-489c-ad12-241f246c444b",
+						"exec": [
+							"pm.test(\"Status code is 20\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://docs.postman-echo.com",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Status Code is 201",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff626708-5dce-4318-8d10-896bb4846e4d",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://docs.postman-echo.com",
+					"protocol": "https",
+					"host": [
+						"docs",
+						"postman-echo",
+						"com"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "a8b2f04c-25a0-4acf-bf7a-7418bcb08ee2",
+						"exec": [
+							"postman.setEnvironmentVariable(\"header_server\", pm.response.headers.get('Server'));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \r\n   \"email\": \"eve.holt@reqres.in\",\r\n   \"password\": \"pistol\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/register",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "BlogSpot"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blog Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "22027fb9-2713-41d7-9f9e-22df39dda019",
+						"exec": [
+							"pm.variables.get(\"My first blog post:\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://reqres.in",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Blop Post(More Tests)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3715eece-c0aa-493c-91f4-96ff2ef6ec89",
+						"exec": [
+							"pm.test(\"Status code is 200\", function() {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"pm.test(\"Status code name has string\", function (){\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"pm.test(\"Body matches string\", function() {\r",
+							"    pm.expect(pm.response.text()).to.include(\"/assets/css/bootstrap/bootstrap.min.css\");\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function() {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
